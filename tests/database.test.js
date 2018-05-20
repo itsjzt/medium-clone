@@ -10,13 +10,27 @@ mongoose
     err => console.log("trying to reconnect")
   );
 
+// user model
+const User = require("../models/user");
+
+const newuser = new User({
+  name: "testing user",
+  username: "user"
+});
+
+newuser
+  .save()
+  .then(() => console.log("saved user"), err => console.log("error user"));
+
 // models
-const Post = require("./models/post");
+const Post = require("../models/post");
 
 const newpost = new Post({
   title: "Hi",
-  author: "user",
+  author: newuser,
   article: " lorem ipsum"
 });
 
-newpost.save().then(() => console.log("saved"), err => console.log("error"));
+newpost
+  .save()
+  .then(() => console.log("saved post"), err => console.log("error post"));
