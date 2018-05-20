@@ -4,8 +4,11 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: String,
   username: String,
-  following: { type: Number, default: 0 },
-  followers: { type: Number, default: 0 },
+  email: String,
+  // this would be a cloudnary image url
+  avatar: String,
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   facebook: {
     id: String,
     token: String,

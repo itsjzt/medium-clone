@@ -7,7 +7,7 @@ const PostSchema = new Schema({
   author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   // author: String,
   article: String,
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post", default: 0 }],
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
   date: { type: Date, default: Date.now },
   meta: {
     claps: { type: Number, default: 0 },
