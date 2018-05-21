@@ -25,6 +25,6 @@ mongoose
 
 app.use("/", indexRouter);
 app.use("/users", userRouter);
-app.user("/post", postRouter);
+app.use("/post", postRouter);
 
 module.exports = app;

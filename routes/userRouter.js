@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const { findUserByUsername } = require("../controllers/userController");
+// All routes are relative to /user/
 
-/* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("respond with a resource");
-});
-
+router.get("/:username", findUserByUsername);
 module.exports = router;
