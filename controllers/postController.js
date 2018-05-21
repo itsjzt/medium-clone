@@ -7,6 +7,6 @@ exports.findPostByURL = async (req, res) => {
   res.json(post);
 };
 
-// exports.submitPost = (req, res) => {
-//   res.json(req.body);
-// };
+exports.submitPost = (req, res) => {
+  res.json(req.body);
+};
