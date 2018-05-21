@@ -11,7 +11,7 @@ mongoose
   );
 
 // user model
-const User = require("../models/user");
+const User = require("../models/userSchema");
 
 const newuser = new User({
   name: "testing user",
@@ -23,12 +23,13 @@ newuser
   .then(() => console.log("saved user"), err => console.log("error user"));
 
 // models
-const Post = require("../models/post");
+const Post = require("../models/postSchema");
 
 const newpost = new Post({
   title: "Hi",
   author: newuser,
-  article: " lorem ipsum"
+  article: " lorem ipsum",
+  url: "hi"
 });
 
 newpost
