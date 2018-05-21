@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   name: String,
+  // TODO: make it unique
   username: String,
   email: String,
   // this would be a cloudnary image url
