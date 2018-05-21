@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
   title: String,
+  // TODO: make it unique
   url: String,
   author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   // author: String,
