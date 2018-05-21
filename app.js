@@ -6,8 +6,9 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const indexRouter = require("./routes/indexRouter");
+const userRouter = require("./routes/userRouter");
+const postRouter = require("./routes/postRouter");
 
 const app = express();
 
@@ -23,6 +24,7 @@ mongoose
   );
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/users", userRouter);
+app.user("/post", postRouter);
 
 module.exports = app;
