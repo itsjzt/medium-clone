@@ -10,3 +10,8 @@ exports.findPostByURL = async (req, res) => {
 exports.submitPost = (req, res) => {
   res.json(req.body);
 };
+
+exports.feed = async (req, res) => {
+  const post = await Post.find();
+  res.send(post);
+};
