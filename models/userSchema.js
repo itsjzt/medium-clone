@@ -5,29 +5,12 @@ const UserSchema = new Schema({
   name: String,
   // TODO: make it unique
   username: String,
-  email: String,
-  // this would be a cloudnary image url
   avatar: String,
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-  facebook: {
-    id: String,
-    token: String,
-    name: String,
-    email: String
-  },
-  twitter: {
-    id: String,
-    token: String,
-    displayName: String,
-    username: String
-  },
-  google: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
-  }
+  google_id: String,
+  google_token: String,
+  email: String
 });
 
 module.exports = mongoose.model("User", UserSchema);

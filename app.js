@@ -2,20 +2,16 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const passport = require("passport");
+const session = require("express-session");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-const indexRouter = require("./routes/indexRouter");
+const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
 const postRouter = require("./routes/postRouter");
 
-const app = express();
-
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 mongoose
   .connect(process.env.MONGO_URL)
   .then(
@@ -23,7 +19,25 @@ mongoose
     err => console.log("trying to reconnect")
   );
 
-app.use("/", indexRouter);
+const app = express();
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: {},
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+const auth = require("./handlers/authHandler");
+auth(passport);
+app.use(passport.initialize());
+
+app.use("/", authRouter);
 app.use("/users", userRouter);
 app.use("/post", postRouter);
 
