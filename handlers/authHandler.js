@@ -17,13 +17,14 @@ module.exports = passport => {
         callbackURL: process.env.GOOGLE_CALLBACK_URL
       },
       async (token, refreshToken, profile, done) => {
+        console.log(profile);
         const user = await User.findOne({ google_id: profile.id });
         if (user) {
           return done(null, user);
         }
         const newuser = new User({
           name: profile.displayName,
-          avatar: profile.photos.value,
+          avatar: profile.photos[0].value,
           google_id: profile.id,
           google_token: token,
           emails: profile.emails
