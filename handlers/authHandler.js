@@ -16,7 +16,7 @@ module.exports = passport => {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK_URL
       },
-      catchErrors(async (token, refreshToken, profile, done) => {
+      async (token, refreshToken, profile, done) => {
         const user = await User.findOne({ google_id: profile.id });
         if (user) {
           return done(null, user);
@@ -30,7 +30,7 @@ module.exports = passport => {
         });
         await newuser.save();
         return done(null, newuser);
-      })
+      }
     )
   );
 };
