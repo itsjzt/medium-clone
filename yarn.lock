@@ -9,10 +9,6 @@ accepts@~1.3.5:
     mime-types "~2.1.18"
     negotiator "0.6.1"
 
-addressparser@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/addressparser/-/addressparser-0.3.2.tgz#59873f35e8fcf6c7361c10239261d76e15348bb2"
-
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
@@ -48,29 +44,28 @@ body-parser@1.18.2:
     raw-body "2.3.2"
     type-is "~1.6.15"
 
+body-parser@^1.18.3:
+  version "1.18.3"
+  resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.3.tgz#5b292198ffdd553b3a0f20ded0592b956955c8b4"
+  dependencies:
+    bytes "3.0.0"
+    content-type "~1.0.4"
+    debug "2.6.9"
+    depd "~1.1.2"
+    http-errors "~1.6.3"
+    iconv-lite "0.4.23"
+    on-finished "~2.3.0"
+    qs "6.5.2"
+    raw-body "2.3.3"
+    type-is "~1.6.16"
+
 bson@~1.0.4, bson@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/bson/-/bson-1.0.6.tgz#444db59ddd4c24f0cb063aabdc5c8c7b0ceca912"
 
-buffalo@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/buffalo/-/buffalo-0.1.3.tgz#aa7f661b7c7d91b989b81e4e01fc1345aa9005fe"
-  dependencies:
-    tosource "0.1.1"
-
-bufferjs@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/bufferjs/-/bufferjs-1.1.0.tgz#095ffa39c5e6b40a2178a1169c9effc584a73201"
-
 bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
-
-connect-mongo-session-store@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/connect-mongo-session-store/-/connect-mongo-session-store-0.0.3.tgz#470b74b8ad8df33873482b168c28a11a63d3ae34"
-  dependencies:
-    mongolian "0.1.x"
 
 content-disposition@0.5.2:
   version "0.5.2"
@@ -94,10 +89,6 @@ cookie-signature@1.0.6:
 cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
-
-crc@3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/crc/-/crc-3.4.4.tgz#9da1e980e3bd44fc5c93bf5ab3da3378d85e466b"
 
 debug@2.6.9, debug@~2.6.9:
   version "2.6.9"
@@ -125,29 +116,6 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-emailjs-base64@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/emailjs-base64/-/emailjs-base64-1.1.4.tgz#392fa38cb6aa35dccd3af3637ffc14c1c7ce9612"
-
-emailjs-mime-codec@^2.0.5:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/emailjs-mime-codec/-/emailjs-mime-codec-2.0.7.tgz#501341be3e322457ae10ed4cfe1c5c0ca1f1adf7"
-  dependencies:
-    emailjs-base64 "^1.1.4"
-    ramda "^0.25.0"
-    text-encoding "^0.6.4"
-
-emailjs@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/emailjs/-/emailjs-2.0.0.tgz#785b404b0e4ad83e5cdeb1978959e29a1e90f584"
-  dependencies:
-    addressparser "^0.3.2"
-    emailjs-mime-codec "^2.0.5"
-    moment "2.20.1"
-    starttls "1.0.1"
-  optionalDependencies:
-    bufferjs "1.1.0"
-
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
@@ -159,20 +127,6 @@ escape-html@~1.0.3:
 etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
-
-express-session@^1.15.6:
-  version "1.15.6"
-  resolved "https://registry.yarnpkg.com/express-session/-/express-session-1.15.6.tgz#47b4160c88f42ab70fe8a508e31cbff76757ab0a"
-  dependencies:
-    cookie "0.3.1"
-    cookie-signature "1.0.6"
-    crc "3.4.4"
-    debug "2.6.9"
-    depd "~1.1.1"
-    on-headers "~1.0.1"
-    parseurl "~1.3.2"
-    uid-safe "~2.1.5"
-    utils-merge "1.0.1"
 
 express@~4.16.0:
   version "4.16.3"
@@ -238,7 +192,7 @@ http-errors@1.6.2:
     setprototypeof "1.0.3"
     statuses ">= 1.3.1 < 2"
 
-http-errors@~1.6.2:
+http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.3.tgz#8b55680bb4be283a0b5bf4ea2e38580be1d9320d"
   dependencies:
@@ -250,6 +204,12 @@ http-errors@~1.6.2:
 iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
+
+iconv-lite@0.4.23:
+  version "0.4.23"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
 
 inherits@2.0.3:
   version "2.0.3"
@@ -297,10 +257,6 @@ mime@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
-moment@2.20.1:
-  version "2.20.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
-
 mongodb-core@3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.0.8.tgz#8d401f4eab6056c0d874a3d5844a4844f761d4d7"
@@ -313,14 +269,6 @@ mongodb@3.0.8:
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.8.tgz#2c1daecac9a0ec2de2f2aea4dc97d76ae70f8951"
   dependencies:
     mongodb-core "3.0.8"
-
-mongolian@0.1.x:
-  version "0.1.18"
-  resolved "https://registry.yarnpkg.com/mongolian/-/mongolian-0.1.18.tgz#893ad7d9603ff7895b9225e7a30bf26d4e34aa91"
-  dependencies:
-    buffalo "0.1.3"
-    taxman "0.1.1"
-    waiter "0.1.1"
 
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
@@ -391,12 +339,6 @@ parseurl@~1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.2.tgz#fc289d4ed8993119460c156253262cdc8de65bf3"
 
-passport-facebook@~2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/passport-facebook/-/passport-facebook-2.1.1.tgz#c39d0b52ae4d59163245a4e21a7b9b6321303311"
-  dependencies:
-    passport-oauth2 "1.x.x"
-
 passport-google-oauth1@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/passport-google-oauth1/-/passport-google-oauth1-1.0.0.tgz#af74a803df51ec646f66a44d82282be6f108e0cc"
@@ -415,12 +357,6 @@ passport-google-oauth@^1.0.0:
   dependencies:
     passport-google-oauth1 "1.x.x"
     passport-google-oauth20 "1.x.x"
-
-passport-local@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
-  dependencies:
-    passport-strategy "1.x.x"
 
 passport-oauth1@1.x.x:
   version "1.1.0"
@@ -442,13 +378,6 @@ passport-oauth2@1.x.x:
 passport-strategy@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
-
-passport-twitter@~1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/passport-twitter/-/passport-twitter-1.0.4.tgz#01a799e1f760bf2de49f2ba5fba32282f18932d7"
-  dependencies:
-    passport-oauth1 "1.x.x"
-    xtraverse "0.1.x"
 
 passport@^0.4.0:
   version "0.4.0"
@@ -476,13 +405,9 @@ qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-ramda@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
-
-random-bytes@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/random-bytes/-/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
+qs@6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
 range-parser@~1.2.0:
   version "1.2.0"
@@ -495,6 +420,15 @@ raw-body@2.3.2:
     bytes "3.0.0"
     http-errors "1.6.2"
     iconv-lite "0.4.19"
+    unpipe "1.0.0"
+
+raw-body@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.3.3.tgz#1b324ece6b5706e153855bc1148c65bb7f6ea0c3"
+  dependencies:
+    bytes "3.0.0"
+    http-errors "1.6.3"
+    iconv-lite "0.4.23"
     unpipe "1.0.0"
 
 regexp-clone@0.0.1:
@@ -515,6 +449,10 @@ resolve-from@^2.0.0:
 safe-buffer@5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+
+"safer-buffer@>= 2.1.2 < 3":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
 semver@^5.1.0:
   version "5.5.0"
@@ -563,10 +501,6 @@ sliced@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
 
-starttls@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/starttls/-/starttls-1.0.1.tgz#e6081c25de6b178f5a75f8f271c1487449183b42"
-
 "statuses@>= 1.3.1 < 2", "statuses@>= 1.4.0 < 2":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
@@ -575,30 +509,12 @@ statuses@~1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
 
-taxman@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/taxman/-/taxman-0.1.1.tgz#c1f66b188b59fbcf64c2d87e33490d90cea3abe2"
-
-text-encoding@^0.6.4:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/text-encoding/-/text-encoding-0.6.4.tgz#e399a982257a276dae428bb92845cb71bdc26d19"
-
-tosource@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/tosource/-/tosource-0.1.1.tgz#33b2d4190a81467d9783a12a56f70a44127339ca"
-
 type-is@~1.6.15, type-is@~1.6.16:
   version "1.6.16"
   resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.16.tgz#f89ce341541c672b25ee7ae3c73dee3b2be50194"
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.18"
-
-uid-safe@~2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/uid-safe/-/uid-safe-2.1.5.tgz#2b3d5c7240e8fc2e58f8aa269e5ee49c0857bd3a"
-  dependencies:
-    random-bytes "~1.0.0"
 
 uid2@0.0.x:
   version "0.0.3"
@@ -615,17 +531,3 @@ utils-merge@1.0.1, utils-merge@1.x.x:
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
-
-waiter@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/waiter/-/waiter-0.1.1.tgz#cf3c8b32f0a001c83ea15e3cf6b61c63d7ce0008"
-
-xmldom@0.1.x:
-  version "0.1.27"
-  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
-
-xtraverse@0.1.x:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/xtraverse/-/xtraverse-0.1.0.tgz#b741bad018ef78d8a9d2e83ade007b3f7959c732"
-  dependencies:
-    xmldom "0.1.x"
