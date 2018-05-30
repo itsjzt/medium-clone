@@ -1,8 +1,8 @@
 # Features to add
 
 * submit post
-* follow url
-* unfollow
+* follow user
+* unfollow user
 * tags in post
 * search posts & user
 
