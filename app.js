@@ -1,9 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
-const session = require("express-session");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
@@ -21,17 +21,9 @@ mongoose
 
 const app = express();
 app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    cookie: {},
-    resave: true,
-    saveUninitialized: true
-  })
-);
 
 const auth = require("./handlers/authHandler");
 auth(passport);
