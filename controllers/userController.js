@@ -17,3 +17,14 @@ exports.followUser = async (req, res) => {
   );
   res.json({ done: true });
 };
+
+exports.unfollowUser = async (req, res) => {
+  // me and tofollow refer to usernames which would be unique
+  const { me, tofollow } = req.params;
+  const follower = await User.findOne({ username: tofollow });
+  const user = await User.findOneAndUpdate(
+    { username: me },
+    { $pull: { followers: follower._id } }
+  );
+  res.json({ done: true });
+};
