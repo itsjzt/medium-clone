@@ -7,6 +7,15 @@ exports.findUserByUsername = async (req, res) => {
   res.json(user);
 };
 
+exports.editUsername = async (req, res) => {
+  const { oldname, newname } = req.params;
+  const user = await User.findOneAndUpdate(
+    { username: oldname },
+    { username: newname }
+  );
+  res.json({ done: true });
+};
+
 exports.followUser = async (req, res) => {
   // me and tofollow refer to usernames which would be unique
   const { me, tofollow } = req.params;
