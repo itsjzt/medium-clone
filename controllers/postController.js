@@ -7,8 +7,17 @@ exports.findPostByURL = async (req, res) => {
   res.json(post);
 };
 
-exports.submitPost = (req, res) => {
-  res.json(req.body);
+// FIXME: create better unique urls
+exports.submitPost = async (req, res) => {
+  const { title, author, article } = req.query;
+  const post = await new Post({
+    title,
+    author,
+    article,
+    url: `title${Date.now()}`
+  }).save();
+
+  res.send(post);
 };
 
 exports.feed = async (req, res) => {
