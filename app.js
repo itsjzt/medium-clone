@@ -32,5 +32,4 @@ app.use(passport.initialize());
 app.use("/", authRouter);
 app.use("/users", userRouter);
 app.use("/post", postRouter);
-
 module.exports = app;

@@ -6,3 +6,14 @@ exports.findUserByUsername = async (req, res) => {
   const user = await User.findOne({ username });
   res.json(user);
 };
+
+exports.followUser = async (req, res) => {
+  // me and tofollow refer to usernames which would be unique
+  const { me, tofollow } = req.params;
+  const follower = await User.findOne({ username: tofollow });
+  const user = await User.findOneAndUpdate(
+    { username: me },
+    { $push: { followers: follower._id } }
+  );
+  res.json({ done: true });
+};
