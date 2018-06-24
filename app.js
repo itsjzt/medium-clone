@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+// // const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const logger = require("morgan");
 const mongoose = require("mongoose");
@@ -23,7 +23,7 @@ const app = express();
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 const auth = require("./handlers/authHandler");
 auth(passport);
