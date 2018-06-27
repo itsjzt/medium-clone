@@ -9,11 +9,19 @@ exports.findUserByUsername = async (req, res) => {
 
 exports.editUsername = async (req, res) => {
   const { oldname, newname } = req.params;
-  const user = await User.findOneAndUpdate(
-    { username: oldname },
-    { username: newname }
-  );
-  res.json({ done: true });
+  // someone already exists with new name
+  if (await User.findOne({ username: newname })) {
+    res.send({ done: false, error: "username already exists" });
+  }
+  // if someone is updating name
+  else if (await User.findOne({ username: oldname })) {
+    const user = await User.findOneAndUpdate(
+      { username: oldname },
+      { username: newname }
+    );
+    res.json({ done: true });
+  }
+  res.json({ done: false, error: "username doesn't exists" });
 };
 
 exports.followUser = async (req, res) => {
