@@ -2,11 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-  title: String,
-  // TODO: make it unique
-  url: String,
+  title: { type: String, trim: true },
+  url: { type: String, lowercase: true, trim: true, unique: true },
   author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  // author: String,
   article: String,
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
   date: { type: Date, default: Date.now },

@@ -3,12 +3,13 @@
 ~~ follow user~~
 ~~ unfollow user~~
 
-- submit post
+~~- submit post~~
+
 - tags in post
-- search posts & user
+  ~~- search posts & user~~
 
 # other todos
 
-- unique usernames
-- make unique post url
-  ~~remove uselesss node_modules ✅~~
+~~- unique usernames~~
+~~- make unique post url~~
+~~remove uselesss node_modules ✅~~
