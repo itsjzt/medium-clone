@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
-router.get("/", (req, res) => res.send(req.session));
+router.get("/", (req, res) => res.json({ hello: "world" }));
 
 router.get(
   "/auth/google",
@@ -11,12 +11,10 @@ router.get(
   })
 );
 
-router.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/login",
-    successRedirect: "/"
-  })
-);
+router.get("/auth/google/callback", function(req, res) {
+  passport.authenticate("google", function(err, user, info) {
+    res.json(user);
+  })(req, res);
+});
 
 module.exports = router;
