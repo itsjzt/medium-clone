@@ -3,7 +3,7 @@ const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+const session = require("express-session");
 const passport = require("passport");
 const logger = require("morgan");
 const mongoose = require("mongoose");
@@ -21,12 +21,22 @@ mongoose
   );
 
 const app = express();
+var sess = {
+  secret: "keyboard cat",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true
+};
+if (app.get("env") === "production") {
+  app.set("trust proxy", 1); // trust first proxy
+  sess.cookie.secure = true; // serve secure cookies
+}
+app.use(session(sess));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.locals.appName = "Medium Clone";
 app.locals.baseUrl = "http://127.1.0.1:3000";
