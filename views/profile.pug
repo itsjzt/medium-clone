@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .container
+    .col-sm-2.col-xs-0
+    .user-cover.col-xs-12.col-sm-8
+      .user-main-info.clearfix
+        .pull-left
+          img.img-responsive.img-circle(src=`${user.avatar}`)
+        .pull-right
+          h1= user.name
+          h4= user.description
+      .user-secondary-info.clearfix 
+        .pull-left
+          - const followers = user.followers.length
+          p #{followers} Followers
+        .pull-right
+          - const followings = user.following.length
+          p #{followings} Followings
+      .user-actions.clearfix
+        .col-sm-5.col-xs-0
+        .btn.btn-primary Follow 
+    
+    .col-xs-12.col-sm-8.margin-top-sm
+      ul.posts
+        each post in posts
+          li.card.border.post.reset-list-type
+            img.post-avatar.img-responsive(src=`${post.image}`)
+            .post-body 
+              h3.post-title #{post.title}
+              - var postText = post.article.split('').slice(0,30).join('')
+              p.post-text #{postText}
+          
+
+
+
+        
+
+      

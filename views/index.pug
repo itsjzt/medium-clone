@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .popular-tags
+      a(href="#").tag Tech 
+      a(href="#").tag Business 
+      a(href="#").tag Startup
+      a(href="#").tag Self
+      a(href="#").tag Politics 
+      a(href="#").tag Science
+      a(href="#").tag Media
+      a(href="#").tag Culture
+      a(href="#").tag More
+
+    h1 Feeds 
+
+    ul.posts
+    each post in posts
+      li.card.border.post.reset-list-type
+        img.post-avatar.img-responsive(src=`${post.image}`)
+        .post-body 
+          h3.post-title #{post.title}
+          - var postText = post.article.split('').slice(0,30).join('')
+          p.post-text #{postText}
+      

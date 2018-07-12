@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title= title
+    
+    meta(name="viewport" content="width=device-width, initial-scale=1") 
+    meta(charset="utf-8")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+
+  body
+  nav.navbar
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href='#') Medium Clone
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href='#')
+            span.glyphicon.glyphicon-user
+            |  SignUp / Login
+
+
+  block content
+  
+  .main-footer.inline.bottom
+    .dropup
+      button.btn.dropdown-toggle(type="button" data-toggle="dropdown") 
+        span.glyphicon.glyphicon-option-vertical
+      ul.dropdown-menu
+        li
+          a.main-footer-link(href="#") Help
+        li
+          a.main-footer-link(href="#") Status
+        li
+          a.main-footer-link(href="#") Writers
+        li
+          a.main-footer-link(href="#") Blog
+        li
+          a.main-footer-link(href="#") Careers
+        li
+          a.main-footer-link(href="#") Privacy
+        li
+          a.main-footer-link(href="#") Terms
+        li
+          a.main-footer-link(href="#") About

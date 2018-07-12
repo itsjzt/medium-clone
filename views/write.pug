@@ -1,0 +1,15 @@
+extends layout
+
+block content 
+  .container 
+    h1.text-center Write post
+
+    form.margin-sm(action="/post" method="POST")
+      .form-group
+        label(for="editor__heading") Heading
+        input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum..." autofocus="true")
+      .form-group
+        label(for="post") Post
+        textarea#post.form-control(placeholder="Your post..." spellcheck="true" name="post_text")
+
+      input.btn.btn-primary(type="submit" value="submit")
