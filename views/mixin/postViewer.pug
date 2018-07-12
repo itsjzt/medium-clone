@@ -1,5 +1,5 @@
-mixin postViewer
-  .col-xs-12.col-sm-8.margin-top-sm
+mixin postViewer(posts)
+  .col-xs-12.col-sm-12.margin-top-sm
     h2 Posts
     ul.posts
       each post in posts
@@ -9,6 +9,6 @@ mixin postViewer
               img.post-avatar.img-responsive(src=`${post.image}`)
             .post-body 
               h3.post-title #{post.title}
-              - var postText = post.article.split('').slice(0,30).join('')
+              - var postText = String(post.article).split('').slice(0,30).join('')
               p.post-text #{postText}
           

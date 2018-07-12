@@ -38,8 +38,13 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-app.locals.appName = "Medium Clone";
-app.locals.baseUrl = "http://127.1.0.1:3000";
+// middleware that assigns useful details to be used in views
+app.use((req, res, next) => {
+  app.locals.appName = "Medium Clone";
+  app.locals.baseUrl = "http://127.1.0.1:3000";
+  app.locals.loginedUser = req.user;
+  next();
+});
 
 const auth = require("./handlers/authHandler");
 auth(passport);

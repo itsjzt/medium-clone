@@ -18,9 +18,12 @@ html
         a.navbar-brand(href='#') Medium Clone
       ul.nav.navbar-nav.navbar-right
         li
-          a(href='#')
-            span.glyphicon.glyphicon-user
-            |  SignUp / Login
+          if loginedUser
+            img.login-avatar(src=`${loginedUser.avatar}`)
+          else
+            a(href='/auth/google')
+              span.glyphicon.glyphicon-user
+              |  SignUp / Login
 
 
   block content
