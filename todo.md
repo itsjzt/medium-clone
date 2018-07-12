@@ -1,15 +1,4 @@
-# Features to add
-
-~~ follow user~~
-~~ unfollow user~~
-
-~~- submit post~~
-
-- tags in post
-  ~~- search posts & user~~
-
-# other todos
-
-~~- unique usernames~~
-~~- make unique post url~~
-~~remove uselesss node_modules ✅~~
+- make submit post feature
+- add login avatar instead of signup/login for logined users
+- add sessions
+- make those routes a bit better

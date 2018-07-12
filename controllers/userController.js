@@ -1,10 +1,13 @@
 const User = require("../models/userSchema");
+const Post = require("../models/postSchema");
+
 const mongoose = require("mongoose");
 
 exports.findUserByUsername = async (req, res) => {
   const username = req.params.username;
   const user = await User.findOne({ username });
-  res.json(user);
+  const posts = await Post.findOne({ author: user._id });
+  res.render("profile", { title: user.name, user, posts: Array(posts) });
 };
 
 exports.editUsername = async (req, res) => {

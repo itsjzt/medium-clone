@@ -1,5 +1,7 @@
 extends layout
 
+include mixin/postViewer.pug
+
 block content
   .container
     .popular-tags
@@ -13,14 +15,4 @@ block content
       a(href="#").tag Culture
       a(href="#").tag More
 
-    h1 Feeds 
-
-    ul.posts
-    each post in posts
-      li.card.border.post.reset-list-type
-        img.post-avatar.img-responsive(src=`${post.image}`)
-        .post-body 
-          h3.post-title #{post.title}
-          - var postText = post.article.split('').slice(0,30).join('')
-          p.post-text #{postText}
-      
+    +postViewer

@@ -4,12 +4,12 @@ block content
   .container 
     h1.text-center Write post
 
-    form.margin-sm(action="/post" method="POST")
+    form.margin-sm(action="/post/submit" method="POST")
       .form-group
         label(for="editor__heading") Heading
-        input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum..." autofocus="true")
+        input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum...")
       .form-group
         label(for="post") Post
-        textarea#post.form-control(placeholder="Your post..." spellcheck="true" name="post_text")
+        textarea#post.form-control(placeholder="Your post..." spellcheck="true" name="article")
 
       input.btn.btn-primary(type="submit" value="submit")

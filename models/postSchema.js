@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// todo: fields required to be true
 const PostSchema = new Schema({
   title: { type: String, trim: true },
   url: { type: String, lowercase: true, trim: true, unique: true },

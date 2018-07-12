@@ -2,21 +2,23 @@ extends layout
 
 block content
   .container
-    .col-sm-3.col-xs-0
-    .col-sm-6.col-xs-12
-      .post-author
-        .user-main-info.clearfix
-        .pull-left
-          img.img-responsive.img-circle(src=`${user.avatar}`)
-        .pull-right
-          h4= user.name
-          h5= user.description
+    if user
+      .col-sm-3.col-xs-0
+      .col-sm-6.col-xs-12
+        .post-author
+          .user-main-info.clearfix
+          .pull-left
+            img.img-responsive.img-circle(src=`${user.avatar}`)
+          .pull-right
+            h4= user.name
+            h5= user.description
 
   .container
     .col-sm-2.col-xs-0
     .col-sm-8.col-xs-12
       h1= post.title
-      img.post-hero.img-responsive.margin-sm(src=`${post.image}`)
+      if post.image
+        img.post-hero.img-responsive.margin-sm(src=`${post.image}`)
       .post-article #{post.article}
       .margin-sm
   

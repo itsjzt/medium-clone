@@ -10,17 +10,18 @@ html {
   outline: solid 1px red;
 } */
 
-.card {
-  display: inline-flex;
-  flex-direction: column;
-  max-width: 200px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+.posts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+  padding: 12px;
 }
 
 .popular-tags {
@@ -39,7 +40,7 @@ html {
   font-variant-caps: petite-caps;
 }
 
-.main-footer-link[href] {
+a[href] {
   color: inherit;
 }
 

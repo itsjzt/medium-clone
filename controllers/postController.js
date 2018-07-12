@@ -3,24 +3,28 @@ const mongoose = require("mongoose");
 
 exports.findPostByURL = async (req, res) => {
   const url = req.params.url;
-  const post = await Post.findOne({ url });
-  res.json(post);
+  const post = await Post.findOne({ url }).populate("author");
+  res.render("post", { title: "Post", user: post.author, post });
 };
 
-// FIXME: create better unique urls
+// todo: create better unique urls
 exports.submitPost = async (req, res) => {
-  const { title, author, article } = req.query;
+  const { title, author, article } = req.body;
   const post = await new Post({
     title,
     author,
     article,
-    url: `title${Date.now()}`
+    url: `${title}${Date.now()}`
   }).save();
 
-  res.send(post);
+  res.render("post", { title: "Post", user: post.author, post });
+};
+
+exports.writePost = (req, res) => {
+  res.render("write.pug");
 };
 
 exports.feed = async (req, res) => {
-  const post = await Post.find();
-  res.send(post);
+  const posts = await Post.find();
+  res.render("index", { title: "Medium Clone", posts });
 };

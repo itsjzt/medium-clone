@@ -1,5 +1,7 @@
 extends layout
 
+include mixin/postViewer.pug
+
 block content
   .container
     .col-sm-2.col-xs-0
@@ -20,17 +22,8 @@ block content
       .user-actions.clearfix
         .col-sm-5.col-xs-0
         .btn.btn-primary Follow 
+    +postViewer
     
-    .col-xs-12.col-sm-8.margin-top-sm
-      ul.posts
-        each post in posts
-          li.card.border.post.reset-list-type
-            img.post-avatar.img-responsive(src=`${post.image}`)
-            .post-body 
-              h3.post-title #{post.title}
-              - var postText = post.article.split('').slice(0,30).join('')
-              p.post-text #{postText}
-          
 
 
 
