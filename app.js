@@ -14,41 +14,49 @@ const userRouter = require("./routes/userRouter");
 const postRouter = require("./routes/postRouter");
 
 mongoose
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+  .connect(
+    process.env.MONGO_URL,
+    { useNewUrlParser: true }
+  )
   .then(
     () => console.log("connected to DB"),
     err => console.log("trying to reconnect")
   );
 
 const app = express();
-var sess = {
-  secret: "keyboard cat",
-  cookie: {},
+var sessionOption = {
+  secret: process.env.SESSION_SECRET,
+  cookie: {
+    maxAge: 600000
+  },
   resave: false,
   saveUninitialized: true
 };
 if (app.get("env") === "production") {
   app.set("trust proxy", 1); // trust first proxy
-  sess.cookie.secure = true; // serve secure cookies
+  sessionOption.cookie.secure = true; // serve secure cookies
 }
-app.use(session(sess));
+app.use(session(sessionOption));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-// middleware that assigns useful details to be used in views
-app.use((req, res, next) => {
-  app.locals.appName = "Medium Clone";
-  app.locals.baseUrl = "http://127.1.0.1:3000";
-  app.locals.loginedUser = req.user;
-  next();
-});
 
 const auth = require("./handlers/authHandler");
 auth(passport);
 app.use(passport.initialize());
+app.use(passport.session());
+
+// middleware that assigns useful details to be used in views
+app.use((req, res, next) => {
+  app.locals.appName = "Medium Clone";
+  app.locals.baseUrl = "http://127.1.0.1:3000";
+  console.log(req.user);
+  app.locals.loginedUser = req.user;
+  next();
+});
 
 app.use("/", authRouter);
 app.use("/users", userRouter);

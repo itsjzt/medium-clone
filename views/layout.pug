@@ -15,11 +15,11 @@ html
   nav.navbar
     .container-fluid
       .navbar-header
-        a.navbar-brand(href='#') Medium Clone
+        a.navbar-brand(href='/') Medium Clone
       ul.nav.navbar-nav.navbar-right
         li
           if loginedUser
-            img.login-avatar(src=`${loginedUser.avatar}`)
+            img.img-responsive.img-circle(src=`${loginedUser.avatar}`)
           else
             a(href='/auth/google')
               span.glyphicon.glyphicon-user
