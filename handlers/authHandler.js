@@ -1,6 +1,5 @@
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const User = require("../models/userSchema");
-const { catchErrors } = require("./errorHandler");
 
 module.exports = passport => {
   passport.serializeUser((user, done) => {
@@ -17,7 +16,6 @@ module.exports = passport => {
         callbackURL: process.env.GOOGLE_CALLBACK_URL
       },
       async (token, refreshToken, profile, done) => {
-        console.log(profile);
         const user = await User.findOne({ google_id: profile.id });
         if (user) {
           return done(null, user);
