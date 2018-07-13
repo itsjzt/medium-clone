@@ -14,7 +14,7 @@ const userRouter = require("./routes/userRouter");
 const postRouter = require("./routes/postRouter");
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
   .then(
     () => console.log("connected to DB"),
     err => console.log("trying to reconnect")
