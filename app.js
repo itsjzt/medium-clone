@@ -53,7 +53,6 @@ app.use(passport.session());
 app.use((req, res, next) => {
   app.locals.appName = "Medium Clone";
   app.locals.baseUrl = "http://localhost:3000";
-  console.log(req.user);
   app.locals.loginedUser = req.user;
   next();
 });
