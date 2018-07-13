@@ -52,7 +52,7 @@ app.use(passport.session());
 // middleware that assigns useful details to be used in views
 app.use((req, res, next) => {
   app.locals.appName = "Medium Clone";
-  app.locals.baseUrl = "http://127.1.0.1:3000";
+  app.locals.baseUrl = "http://localhost:3000";
   console.log(req.user);
   app.locals.loginedUser = req.user;
   next();
