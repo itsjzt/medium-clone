@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 exports.findPostByURL = async (req, res) => {
   const url = req.params.url;
   const post = await Post.findOne({ url }).populate("author");
-  res.render("post", { title: "Post", user: post.author, post });
+  res.render("post", { title: post.title, user: post.author, post });
 };
 
 // todo: create better unique urls
