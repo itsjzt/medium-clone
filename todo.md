@@ -1,4 +1,5 @@
 - make submit post feature
 - add login avatar instead of signup/login for logined users
 - add sessions
+- add rich text editor for writing posts
 - make those routes a bit better
