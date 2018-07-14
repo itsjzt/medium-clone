@@ -20,7 +20,13 @@ html
       ul.nav.navbar-nav.navbar-right
         li
           if loginedUser
-            img.img-responsive.img-circle(src=`${loginedUser.avatar}`)
+            .dropdown
+              img.img-responsive.img-circle.dropdown-toggle.margin-right-sm(src=`${loginedUser.avatar}` data-toggle="dropdown")
+              ul.dropdown-menu
+                li
+                  a(href="/logout") Logout
+                li
+                  a(href="/post/submit") Write Post
           else
             a(href='/auth/google')
               span.glyphicon.glyphicon-user

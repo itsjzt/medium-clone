@@ -67,6 +67,10 @@ a[href] {
   margin-left: 16px;
 }
 
+.margin-right-sm {
+  margin-right: 32px;
+}
+
 .margin-sm {
   margin: 16px;
 }
@@ -78,6 +82,10 @@ a[href] {
 
   .margin-left-sm {
     margin-left: 32px;
+  }
+
+  .margin-right-sm {
+    margin-right: 32px;
   }
 
   .margin-sm {
