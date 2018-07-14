@@ -8,3 +8,4 @@
 - sanitize user posts
 - make those routes a bit better
 - comments are not working yet
+- pass user with post
