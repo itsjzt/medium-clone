@@ -89,15 +89,22 @@ a[href] {
   }
 }
 
-.post-article {
+.post-article,
+.post-textarea {
   font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua",
     Georgia, serif;
   font-size: 21px;
   line-height: 32px;
 }
 
-#post {
-  height: 100vh;
+.post-textarea:hover,
+.post-textarea:focus {
+  outline: none;
+}
+
+#editor__heading {
+  font-size: 24px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .inline {

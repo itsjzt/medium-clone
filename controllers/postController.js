@@ -17,7 +17,7 @@ exports.submitPost = async (req, res) => {
     url: `${title}${Date.now()}`
   }).save();
 
-  res.render("post", { title: "Post", user: post.author, post });
+  res.redirect(`/post/p/${post.url}`);
 };
 
 exports.writePost = (req, res) => {

@@ -17,9 +17,7 @@ block content
     .col-sm-2.col-xs-0
     .col-sm-8.col-xs-12
       h1= post.title
-      if post.image
-        img.post-hero.img-responsive.margin-sm(src=`${post.image}`)
-      .post-article #{post.article}
+      .post-article !{post.article}
       .margin-sm
   
   .container

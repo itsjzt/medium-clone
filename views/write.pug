@@ -1,5 +1,11 @@
 extends layout
 
+//- script and style for medium like inline editor toolbar.
+block HTMLhead 
+  script(src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js")
+  link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8")
+  link(rel="stylesheet" href="/stylesheets/tooltip-theme.css")
+
 block content 
   .container 
     h1.text-center Write post
@@ -10,6 +16,8 @@ block content
         input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum...")
       .form-group
         label(for="post") Post
-        textarea#post.form-control(placeholder="Your post..." spellcheck="true" name="article")
+        textarea#post.post-textarea.editable(placeholder="Your post..." spellcheck="true" name="article")
 
       input.btn.btn-primary(type="submit" value="submit")
+  script.
+    var editor = new MediumEditor('.editable');

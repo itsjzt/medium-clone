@@ -6,10 +6,8 @@ mixin postViewer(posts)
         each post in posts
           li.card.border.post.reset-list-type
             a(href=`${baseUrl}/post/p/${post.url}`)
-              if post.image
-                img.post-avatar.img-responsive(src=`${post.image}`)
               .post-body 
                 h3.post-title #{post.title}
                 - var postText = String(post.article).split('').slice(0,30).join('')
-                p.post-text #{postText}
+                p.post-text !{postText}
             
