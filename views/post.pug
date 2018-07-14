@@ -8,10 +8,9 @@ block content
         .post-author
           .user-main-info.clearfix
           .pull-left
-            img.img-responsive.img-circle(src=`${user.avatar}`)
+            a(href=`/users/i/${user.username}`) By #{user.name}
           .pull-right
-            h4= user.name
-            h5= user.description
+            p= user.description
 
   .container
     .col-sm-2.col-xs-0
