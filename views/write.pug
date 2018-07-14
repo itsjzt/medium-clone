@@ -11,6 +11,7 @@ block content
     h1.text-center Write post
 
     form.margin-sm(action="/post/submit" method="POST")
+      input.hide.form-control(type="text" name="author" value=`${loginedUser._id}`)
       .form-group
         label(for="editor__heading") Heading
         input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum...")
