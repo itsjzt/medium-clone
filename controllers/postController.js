@@ -10,7 +10,6 @@ exports.findPostByURL = async (req, res) => {
 // todo: create better unique urls
 exports.submitPost = async (req, res) => {
   const { title, author, article } = req.body;
-  console.log(req.body);
   const post = await new Post({
     title,
     author,
