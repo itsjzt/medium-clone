@@ -10,7 +10,7 @@ const { catchErrors } = require("../handlers/errorHandler");
 
 // All routes are relative to /post/
 
-router.get("/p/:url", findPostByURL);
+router.get("/p/:url", catchErrors(findPostByURL));
 router.get("/submit", writePost);
 router.post("/submit", catchErrors(submitPost));
 router.get("/", feed);
