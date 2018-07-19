@@ -15,7 +15,10 @@ block content
       p You can drag-n-drop images directly in the article box.
 
     form.margin-sm(action="/post/submit" method="POST")
-      input.hide.form-control(type="text" name="author" value=`${loginedUser._id}`)
+      if parentPost
+        input.hide.form-control(type="text" name="parentPost" value=`${parentPost}`)
+      if loginedUser
+        input.hide.form-control(type="text" name="author" value=`${loginedUser._id}`)
       .form-group
         label(for="editor__heading") Heading
         input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum...")
@@ -28,6 +31,5 @@ block content
     var editor = new MediumEditor('.editable', {
        placeholder: {
         text: 'type your article....',
-        hideOnClick: true
-    }
+      }
     });
