@@ -3,11 +3,9 @@
 <!-- - add sessions -->
 <!-- - add rich text editor for writing posts -->
 <!-- - make a dropdown to login avatar which shows logout, write post, etc.. -->
+<!-- - sanitize user posts -->
+<!-- - pass user with post -->
+<!-- - add tooltip for user to tell them drag and drop images work. -->
 
-- add tooltip for user to
-- tell them drag and drop images work.
-- sanitize user posts
 - make those routes a bit better
 - comments are not working yet
-- pass user with post
-- store sessions in mongo db

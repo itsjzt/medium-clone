@@ -111,8 +111,9 @@ a[href] {
 }
 
 #editor__heading {
-  font-size: 24px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  font-family: inherit;
 }
 
 .inline {

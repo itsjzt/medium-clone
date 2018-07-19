@@ -9,6 +9,10 @@ block HTMLhead
 block content 
   .container 
     h1.text-center Write post
+    .alert.alert-info.fade-in 
+      a(href="#" class="close" data-dismiss="alert") &times;
+      strong Note!
+      p You can drag-n-drop images directly in the article box.
 
     form.margin-sm(action="/post/submit" method="POST")
       input.hide.form-control(type="text" name="author" value=`${loginedUser._id}`)
@@ -21,4 +25,9 @@ block content
 
       input.btn.btn-primary(type="submit" value="submit")
   script.
-    var editor = new MediumEditor('.editable');
+    var editor = new MediumEditor('.editable', {
+       placeholder: {
+        text: 'type your article....',
+        hideOnClick: true
+    }
+    });
