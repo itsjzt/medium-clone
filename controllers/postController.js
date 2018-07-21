@@ -11,7 +11,8 @@ exports.findPostByURL = async (req, res) => {
 
 // todo: create better unique urls
 exports.submitPost = async (req, res) => {
-  const { title, author, article } = req.body;
+  const { title, article } = req.body;
+  const author = req.user._id;
   const post = await new Post({
     title,
     author,
@@ -24,9 +25,4 @@ exports.submitPost = async (req, res) => {
 
 exports.writePost = (req, res) => {
   res.render("write.pug");
-};
-
-exports.feed = async (req, res) => {
-  const posts = await Post.find();
-  res.render("index", { title: "Medium Clone", posts });
 };

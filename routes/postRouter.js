@@ -13,6 +13,5 @@ const { catchErrors } = require("../handlers/errorHandler");
 router.get("/p/:url", catchErrors(findPostByURL));
 router.get("/submit", writePost);
 router.post("/submit", catchErrors(submitPost));
-router.get("/", feed);
 
 module.exports = router;
