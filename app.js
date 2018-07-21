@@ -8,10 +8,12 @@ const passport = require("passport");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
+const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/userRouter");
 const postRouter = require("./routes/postRouter");
+const commentRouter = require("./routes/commentRouter");
 
 mongoose
   .connect(
@@ -23,9 +25,11 @@ mongoose
     err => console.log("trying to reconnect")
   );
 
+const db = mongoose.connection;
 const app = express();
 var sessionOption = {
   secret: process.env.SESSION_SECRET,
+  store: new MongoStore({ mongooseConnection: db }),
   cookie: {
     maxAge: 600000
   },
@@ -57,9 +61,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", authRouter);
 app.use("/users", userRouter);
 app.use("/post", postRouter);
+app.use("/comment", commentRouter);
+app.use("/", authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
