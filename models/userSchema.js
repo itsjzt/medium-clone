@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -8,14 +9,14 @@ const UserSchema = new Schema({
     type: String,
     lowercase: true,
     trim: true,
-    unique: true
+    unique: true,
   },
   avatar: String,
-  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   google_id: String,
   google_token: String,
-  email: { required: true, type: String, lowercase: true, trim: true }
+  email: { required: true, type: String, lowercase: true, trim: true },
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model('User', UserSchema);

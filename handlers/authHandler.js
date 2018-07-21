@@ -1,5 +1,5 @@
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const User = require("../models/userSchema");
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const User = require('../models/userSchema');
 
 module.exports = passport => {
   passport.serializeUser((user, done) => {
@@ -13,7 +13,7 @@ module.exports = passport => {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.GOOGLE_CALLBACK_URL
+        callbackURL: process.env.GOOGLE_CALLBACK_URL,
       },
       async (token, refreshToken, profile, done) => {
         const user = await User.findOne({ google_id: profile.id });
@@ -25,7 +25,7 @@ module.exports = passport => {
           avatar: profile.photos[0].value,
           google_id: profile.id,
           google_token: token,
-          emails: profile.emails
+          emails: profile.emails,
         });
         await newuser.save();
         return done(null, newuser);
