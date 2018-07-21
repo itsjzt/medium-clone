@@ -1,9 +1,11 @@
 const Post = require("../models/postSchema");
 const mongoose = require("mongoose");
+const { findCommentsByPost } = require("./commentController");
 
 exports.findPostByURL = async (req, res) => {
   const url = req.params.url;
   const post = await Post.findOne({ url }).populate("author");
+  post.comments = await findCommentsByPost(post._id);
   res.render("post", { title: post.title, user: post.author, post });
 };
 

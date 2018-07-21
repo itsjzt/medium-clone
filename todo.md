@@ -10,3 +10,4 @@
 - make those routes a bit better
 - comments are not working yet
 - claps feature
+- populate user from req.user instead of hidden input

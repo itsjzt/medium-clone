@@ -20,10 +20,13 @@ block content
       .margin-sm
   
   .container
+    .col-sm-2.col-xs-0
     .col-sm-8.col-xs-12
-    .col-sm-4.col-xs-12
-      a(href="/post/submit")
-        button.btn.btn-success.pull-right Comment
+      form(action=`/comment/${post._id}` method="POST")
+        .form-group
+          label.sr-only(for="cmnt_txt") Comment
+          input#cmnt_txt.form-control(name="text" required="true" placeholder="write your views on this post ...")
+        input.btn.btn-primary(type="submit" value="Submit")
 
   if post.comments 
     .container 
@@ -33,6 +36,7 @@ block content
           .comment.clearfix
             .panel.panel-default
               .panel-heading
-                h4= comment.user.name
+                a(href=`/users/i/${comment.author.username}`)
+                  h4= comment.author.name
               .panel-body
-                h5= comment.description
+                h5= comment.text
