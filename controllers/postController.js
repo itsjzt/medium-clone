@@ -26,3 +26,11 @@ exports.submitPost = async (req, res) => {
 exports.writePost = (req, res) => {
   res.render("write.pug");
 };
+
+exports.clapPost = async (req, res) => {
+  await Post.findOneAndUpdate(
+    { _id: req.params.postId },
+    { $inc: { claps: 1 } }
+  );
+  res.redirect("back");
+};

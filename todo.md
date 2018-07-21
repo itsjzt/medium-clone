@@ -7,8 +7,8 @@
 <!-- - pass user with post -->
 <!-- - add tooltip for user to tell them drag and drop images work. -->
 <!-- - comments are not working yet -->
+<!-- - populate user from req.user instead of hidden input -->
+<!-- - claps feature -->
 
 - make those routes a bit better
 - optimize findpostByURL
-- claps feature
-- populate user from req.user instead of hidden input

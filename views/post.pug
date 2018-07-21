@@ -17,8 +17,9 @@ block content
     .col-sm-8.col-xs-12
       h1= post.title
       .post-article !{post.article}
-      .margin-sm
-  
+        .clap
+          a.like-btn(href=`/post/clap/${post._id}`) 👏
+            
   .container
     .col-sm-2.col-xs-0
     .col-sm-8.col-xs-12

@@ -68,7 +68,7 @@ a[href] {
 }
 
 .margin-right-sm {
-  margin-right: 32px;
+  margin-right: 16px;
 }
 
 .margin-sm {
@@ -124,4 +124,18 @@ a[href] {
   position: fixed;
   bottom: 5%;
   right: 5%;
+}
+
+.clap {
+  display: flex;
+  justify-content: center;
+  margin: 32px;
+}
+
+.like-btn {
+  border: solid 1px #454545;
+  padding: 8px 16px;
+  border-radius: 2px;
+  color: #f94e66 !important;
+  font-size: 18px;
 }

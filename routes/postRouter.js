@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   findPostByURL,
   submitPost,
-  feed,
+  clapPost,
   writePost
 } = require("../controllers/postController");
 const { catchErrors } = require("../handlers/errorHandler");
@@ -12,6 +12,6 @@ const { catchErrors } = require("../handlers/errorHandler");
 
 router.get("/p/:url", catchErrors(findPostByURL));
 router.get("/submit", writePost);
+router.get("/clap/:postId", catchErrors(clapPost));
 router.post("/submit", catchErrors(submitPost));
-
 module.exports = router;

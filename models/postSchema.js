@@ -17,9 +17,7 @@ const PostSchema = new Schema({
     trim: true
   },
   date: { type: Date, default: Date.now },
-  meta: {
-    claps: { type: Number, default: 0 }
-  }
+  claps: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model("Post", PostSchema);
