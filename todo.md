@@ -13,3 +13,7 @@
 - make those routes a bit better
 - optimize findpostByURL
 - adhere to real world app specs (optional)
+  - tags system
+  - User = CRU*
+  - Post = CRUD
+  - comments = CR*D
