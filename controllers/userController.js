@@ -8,6 +8,11 @@ exports.findUserByUsername = async (req, res) => {
   res.render('profile', { title: user.name, user, posts: Array(posts) });
 };
 
+exports.logout = (req, res) => {
+  req.logout();
+  res.redirect('/');
+};
+
 exports.editUsername = async (req, res) => {
   const { oldname, newname } = req.params;
   // someone already exists with new name
@@ -16,7 +21,10 @@ exports.editUsername = async (req, res) => {
   }
   // if someone is updating name
   else if (await User.findOne({ username: oldname })) {
-    const user = await User.findOneAndUpdate({ username: oldname }, { username: newname });
+    const user = await User.findOneAndUpdate(
+      { username: oldname },
+      { username: newname }
+    );
     res.json({ done: true });
   }
   res.json({ done: false, error: "username doesn't exists" });
@@ -26,7 +34,10 @@ exports.followUser = async (req, res) => {
   // me and tofollow refer to usernames which would be unique
   const { me, tofollow } = req.params;
   const follower = await User.findOne({ username: tofollow });
-  await User.findOneAndUpdate({ username: me }, { $push: { followers: follower._id } });
+  await User.findOneAndUpdate(
+    { username: me },
+    { $push: { followers: follower._id } }
+  );
   res.json({ done: true });
 };
 

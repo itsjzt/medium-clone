@@ -12,9 +12,7 @@ mongoose.Promise = global.Promise;
 const MongoStore = require('connect-mongo')(session);
 
 const indexRouter = require('./routes/indexRouter');
-const userRouter = require('./routes/userRouter');
-const postRouter = require('./routes/postRouter');
-const commentRouter = require('./routes/commentRouter');
+const authRouter = require('./routes/authRouter');
 
 mongoose
   .connect(
@@ -63,10 +61,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/users', userRouter);
-app.use('/post', postRouter);
-app.use('/comment', commentRouter);
 app.use('/', indexRouter);
+app.use('/', authRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

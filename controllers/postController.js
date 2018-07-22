@@ -1,6 +1,11 @@
 const Post = require('../models/postSchema');
 const { findCommentsByPost } = require('./commentController');
 
+exports.feed = async (req, res) => {
+  const posts = await Post.find();
+  res.render('index', { title: 'Medium Clone', posts });
+};
+
 exports.findPostByURL = async (req, res) => {
   const { url } = req.params;
   const post = await Post.findOne({ url }).populate('author');
@@ -27,6 +32,9 @@ exports.writePost = (req, res) => {
 };
 
 exports.clapPost = async (req, res) => {
-  await Post.findOneAndUpdate({ _id: req.params.postId }, { $inc: { claps: 1 } });
+  await Post.findOneAndUpdate(
+    { _id: req.params.postId },
+    { $inc: { claps: 1 } }
+  );
   res.redirect('back');
 };
