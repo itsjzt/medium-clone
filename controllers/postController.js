@@ -21,7 +21,7 @@ exports.submitPost = async (req, res) => {
     title,
     author,
     article,
-    url: `${title}${Date.now()}`,
+    url: `${title.toString().replace(/\s+/, '-')}${Date.now()}`,
   }).save();
 
   res.redirect(`/p/${post.url}`);
@@ -33,7 +33,7 @@ exports.writePost = (req, res) => {
 
 exports.clapPost = async (req, res) => {
   await Post.findOneAndUpdate(
-    { _id: req.params.postId },
+    { url: req.params.posturl },
     { $inc: { claps: 1 } }
   );
   res.redirect('back');

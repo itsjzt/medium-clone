@@ -16,3 +16,5 @@ router.get(
     failureRedirect: '/',
   })
 );
+
+module.exports = router

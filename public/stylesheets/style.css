@@ -1,7 +1,7 @@
 html {
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* debug mode */
@@ -42,7 +42,7 @@ html {
   font-variant-caps: petite-caps;
 }
 
-a[href] {
+.link[href] {
   color: inherit;
 }
 
@@ -53,7 +53,7 @@ a[href] {
 .post-body {
   padding-left: 12px;
   padding-right: 12px;
-  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua",
+  font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua',
     Georgia, serif;
   font-size: 21px;
   line-height: 32px;
@@ -99,7 +99,7 @@ a[href] {
 
 .post-article,
 .post-textarea {
-  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua",
+  font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua',
     Georgia, serif;
   font-size: 21px;
   line-height: 32px;
@@ -126,7 +126,7 @@ a[href] {
   right: 5%;
 }
 
-.clap {
+.like {
   display: flex;
   justify-content: center;
   margin: 32px;
@@ -138,4 +138,12 @@ a[href] {
   border-radius: 2px;
   color: #f94e66 !important;
   font-size: 18px;
+}
+
+.login {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
 }

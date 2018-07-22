@@ -13,6 +13,10 @@ exports.logout = (req, res) => {
   res.redirect('back');
 };
 
+exports.login = (req, res) => {
+  res.render('login');
+};
+
 exports.editUsername = async (req, res) => {
   const { oldname, newname } = req.params;
   // someone already exists with new name

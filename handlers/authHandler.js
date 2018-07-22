@@ -26,6 +26,7 @@ module.exports = passport => {
           google_id: profile.id,
           google_token: token,
           emails: profile.emails,
+          username: profile.displayName.replace('s+', '_') + Date.now(),
         });
         await newuser.save();
         return done(null, newuser);
