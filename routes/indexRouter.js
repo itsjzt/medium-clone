@@ -6,10 +6,10 @@ const pc = require('../controllers/postController');
 const uc = require('../controllers/userController');
 
 router.get('/', catchErrors(pc.feed));
-router.get('post/p/:url', catchErrors(pc.findPostByURL));
-router.get('post/submit', pc.writePost);
-router.get('post/clap/:postId', catchErrors(pc.clapPost));
-router.post('post/submit', catchErrors(pc.submitPost));
+router.get('p/:url', catchErrors(pc.findPostByURL));
+router.get('editor', pc.writePost);
+router.post('editor', catchErrors(pc.submitPost));
+router.get('clap/:postId', catchErrors(pc.clapPost));
 router.post('comment/:postid', catchErrors(addComment));
 
 // All routes are relative to /users/
@@ -19,7 +19,7 @@ router.post('comment/:postid', catchErrors(addComment));
 //   'users/editusername/:oldname/:newname',
 //   catchErrors(uc.editUsername)
 // );
-router.get('users/i/:username', catchErrors(uc.findUserByUsername));
-router.get('users/logout', uc.logout);
+router.get('i/:username', catchErrors(uc.findUserByUsername));
+router.get('logout', uc.logout);
 
 module.exports = router;

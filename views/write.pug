@@ -14,7 +14,7 @@ block content
       strong Note!
       p You can drag-n-drop images directly in the article box.
 
-    form.margin-sm(action="/post/submit" method="POST")
+    form.margin-sm(action="/editor" method="POST")
       .form-group
         label(for="editor__heading") Heading
         input#editor__heading.form-control(type="text" name="title" required="true" placeholder="Lorem Ipsum...")

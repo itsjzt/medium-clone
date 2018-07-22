@@ -24,9 +24,9 @@ html
                 img.img-responsive.img-circle.dropdown-toggle.margin-right-sm(src=`${loginedUser.avatar}` data-toggle="dropdown")
                 ul.dropdown-menu
                   li
-                    a(href="/users/logout") Logout
+                    a(href="/logout") Logout
                   li
-                    a(href="/post/submit") Write Post
+                    a(href="/editor") Write Post
             else
               a(href='/auth/google')
                 span.glyphicon.glyphicon-user

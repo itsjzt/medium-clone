@@ -10,7 +10,7 @@ exports.findUserByUsername = async (req, res) => {
 
 exports.logout = (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.redirect('back');
 };
 
 exports.editUsername = async (req, res) => {

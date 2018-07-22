@@ -8,7 +8,7 @@ block content
         .post-author
           .user-main-info.clearfix
           .pull-left
-            a(href=`/users/i/${user.username}`) By #{user.name}
+            a(href=`/i/${user.username}`) By #{user.name}
           .pull-right
             p= user.description
 
@@ -18,7 +18,7 @@ block content
       h1= post.title
       .post-article !{post.article}
         .clap
-          a.like-btn(href=`/post/clap/${post._id}`) 👏
+          a.like-btn(href=`/clap/${post._id}`) 👏
             
   .container
     .col-sm-2.col-xs-0
@@ -37,7 +37,7 @@ block content
           .comment.clearfix
             .panel.panel-default
               .panel-heading
-                a(href=`/users/i/${comment.author.username}`)
+                a(href=`/i/${comment.author.username}`)
                   h4= comment.author.name
               .panel-body
                 h5= comment.text
