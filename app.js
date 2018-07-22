@@ -21,7 +21,10 @@ mongoose
     process.env.MONGO_URL,
     { useNewUrlParser: true }
   )
-  .then(() => console.log('connected to DB'), err => console.log('trying to reconnect'));
+  .then(
+    () => console.log('connected to DB'),
+    err => console.log('trying to reconnect')
+  );
 
 const db = mongoose.connection;
 const app = express();
