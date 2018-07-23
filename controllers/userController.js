@@ -13,6 +13,14 @@ exports.logout = (req, res) => {
   res.redirect('back');
 };
 
+exports.isLoggedIn = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};
+
 exports.login = (req, res) => {
   res.render('login');
 };

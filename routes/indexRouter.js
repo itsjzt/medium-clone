@@ -8,12 +8,12 @@ const uc = require('../controllers/userController');
 router.get('/', catchErrors(pc.feed));
 router.get('/login', uc.login);
 router.get('/p/:url', catchErrors(pc.findPostByURL));
-router.get('/editor', pc.writePost);
-router.post('/editor', catchErrors(pc.submitPost));
-router.get('/like/:posturl', catchErrors(pc.clapPost));
-router.post('/comment/:postid', catchErrors(addComment));
-router.get('/settings', uc.editUser);
-router.post('/settings', catchErrors(uc.submitUser));
+router.get('/editor', uc.isLoggedIn, pc.writePost);
+router.post('/editor', uc.isLoggedIn, catchErrors(pc.submitPost));
+router.get('/like/:posturl', uc.isLoggedIn, catchErrors(pc.clapPost));
+router.post('/comment/:postid', uc.isLoggedIn, catchErrors(addComment));
+router.get('/settings', uc.isLoggedIn, uc.editUser);
+router.post('/settings', uc.isLoggedIn, catchErrors(uc.submitUser));
 
 // All routes are relative to /users/
 // router.get('users/follow/:me/:tofollow', catchErrors(uc.followUser));
@@ -23,6 +23,6 @@ router.post('/settings', catchErrors(uc.submitUser));
 //   catchErrors(uc.editUsername)
 // );
 router.get('/i/:username', catchErrors(uc.findUserByUsername));
-router.get('/logout', uc.logout);
+router.get('/logout', uc.isLoggedIn, uc.logout);
 
 module.exports = router;
