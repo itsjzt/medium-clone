@@ -9,7 +9,6 @@ const UserSchema = new mongoose.Schema({
     unique: true,
   },
   avatar: String,
-  following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   google_id: String,
   google_token: String,

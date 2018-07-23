@@ -17,8 +17,8 @@ block content
     .col-sm-8.col-xs-12
       h1= post.title
       .post-article !{post.article}
-        .like
-          a.like-btn(href=`/like/${post._id}`) 👏
+      .post-action
+        a.btn.btn-lg.btn-default(href=`/like/${post._id}`) ❤️ Like (#{post.claps})
             
   .container
     .col-sm-2.col-xs-0
@@ -27,7 +27,7 @@ block content
         .form-group
           label.sr-only(for="cmnt_txt") Comment
           input#cmnt_txt.form-control(name="text" required="true" placeholder="write your views on this post ...")
-        input.btn.btn-primary(type="submit" value="Submit")
+        input.btn.btn-default(type="submit" value="Submit")
 
   if post.comments 
     .container 

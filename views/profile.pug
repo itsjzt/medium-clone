@@ -16,15 +16,13 @@ block content
         .pull-left
           - const followers = user.followers.length
           p #{followers} Followers
-        .pull-right
-          - const followings = user.following.length
-          p #{followings} Followings
       .user-actions.clearfix
-        - const Followbtn = loginedUser ? !user.followers.includes(loginedUser._id)  : true
-        - const showFollowBtn = followbtn || loginedUser ? user._id === loginedUser._id : true
-        if showFollowBtn
-          .col-sm-5.col-xs-0
-          a.btn.btn-primary(href=`/follow/${user.username}`) Follow 
+        .col-sm-5.col-xs-0
+        //- - const isFollower = loginedUser && loginedUser.followers.includes(user._id)
+        //- if isFollower
+        a.btn.btn-default(href=`/unfollow/${user.username}`) Unfollow 
+        //- else 
+        a.btn.btn-default(href=`/follow/${user.username}`) Follow 
 
     .row 
       .col-md-8

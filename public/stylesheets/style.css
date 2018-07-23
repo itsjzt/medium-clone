@@ -126,18 +126,10 @@ html {
   right: 5%;
 }
 
-.like {
+.post-action {
   display: flex;
   justify-content: center;
-  margin: 32px;
-}
-
-.like-btn {
-  border: solid 1px #454545;
-  padding: 8px 16px;
-  border-radius: 2px;
-  color: #f94e66 !important;
-  font-size: 18px;
+  margin: 32px 0;
 }
 
 .login {

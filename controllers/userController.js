@@ -33,7 +33,7 @@ exports.submitUser = async (req, res) => {
   const { username, email, name } = req.body;
   console.log(req.body);
   const user = await User.findOneAndUpdate(
-    { id: req._id },
+    { _id: req.user._id },
     { email, username, name }
   );
   res.redirect(`/`);
@@ -41,7 +41,8 @@ exports.submitUser = async (req, res) => {
 
 exports.followUser = async (req, res) => {
   // me and tofollow refer to usernames which would be unique
-  const { me, tofollow } = req.params;
+  const [me, tofollow] = [req.user.username, req.params.username];
+  console.log(me, tofollow);
   const follower = await User.findOne({ username: tofollow });
   await User.findOneAndUpdate(
     { username: me },
@@ -52,11 +53,12 @@ exports.followUser = async (req, res) => {
 
 exports.unfollowUser = async (req, res) => {
   // me and tofollow refer to usernames which would be unique
-  const { me, tofollow } = req.params;
-  const follower = await User.findOne({ username: tofollow });
+  const [me, tounfollow] = [req.user.username, req.params.username];
+  console.log(me, tounfollow);
+  const follower = await User.findOne({ username: tounfollow });
   await User.findOneAndUpdate(
     { username: me },
-    { $pull: { followers: follower._id } }
+    { $pop: { followers: follower._id } }
   );
   res.redirect('back');
 };

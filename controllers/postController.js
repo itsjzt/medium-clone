@@ -31,7 +31,7 @@ exports.writePost = (req, res) => {
   res.render('write.pug');
 };
 
-exports.clapPost = async (req, res) => {
+exports.likePost = async (req, res) => {
   await Post.findOneAndUpdate(
     { url: req.params.posturl },
     { $inc: { claps: 1 } }
