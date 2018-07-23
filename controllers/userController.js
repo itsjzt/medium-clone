@@ -17,21 +17,18 @@ exports.login = (req, res) => {
   res.render('login');
 };
 
-exports.editUsername = async (req, res) => {
-  const { oldname, newname } = req.params;
-  // someone already exists with new name
-  if (await User.findOne({ username: newname })) {
-    res.send({ done: false, error: 'username already exists' });
-  }
-  // if someone is updating name
-  else if (await User.findOne({ username: oldname })) {
-    const user = await User.findOneAndUpdate(
-      { username: oldname },
-      { username: newname }
-    );
-    res.json({ done: true });
-  }
-  res.json({ done: false, error: "username doesn't exists" });
+exports.editUser = (req, res) => {
+  res.render('editprofile', { user: req.user });
+};
+
+exports.submitUser = async (req, res) => {
+  const { username, email, name } = req.body;
+  console.log(req.body);
+  const user = await User.findOneAndUpdate(
+    { id: req._id },
+    { email, username, name }
+  );
+  res.redirect(`/`);
 };
 
 exports.followUser = async (req, res) => {
@@ -42,16 +39,16 @@ exports.followUser = async (req, res) => {
     { username: me },
     { $push: { followers: follower._id } }
   );
-  res.json({ done: true });
+  res.redirect('back');
 };
 
 exports.unfollowUser = async (req, res) => {
   // me and tofollow refer to usernames which would be unique
   const { me, tofollow } = req.params;
   const follower = await User.findOne({ username: tofollow });
-  const user = await User.findOneAndUpdate(
+  await User.findOneAndUpdate(
     { username: me },
     { $pull: { followers: follower._id } }
   );
-  res.json({ done: true });
+  res.redirect('back');
 };

@@ -12,6 +12,8 @@ router.get('/editor', pc.writePost);
 router.post('/editor', catchErrors(pc.submitPost));
 router.get('/like/:posturl', catchErrors(pc.clapPost));
 router.post('/comment/:postid', catchErrors(addComment));
+router.get('/settings', uc.editUser);
+router.post('/settings', catchErrors(uc.submitUser));
 
 // All routes are relative to /users/
 // router.get('users/follow/:me/:tofollow', catchErrors(uc.followUser));

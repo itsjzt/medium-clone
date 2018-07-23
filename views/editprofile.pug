@@ -1,3 +1,15 @@
 extends layout 
 
 block content 
+  .container
+    form.form(action="/settings" method="POST")
+      .form-group 
+        label(for="username") Username
+        input.form-control#username(type="text" name="username" required="true" value=`${user.username || ''}`)
+      .form-group 
+        label(for="email") Email
+        input.form-control#email(type="email" name="email" required="true" value=`${user.email || ''}`)
+      .form-group 
+        label(for="name") Name
+        input.form-control#name(type="text" name="name" required="true" value=`${user.name || ''}`)
+      input.btn.btn-block.btn-primary.btn-lg(type="submit" value="Submit")

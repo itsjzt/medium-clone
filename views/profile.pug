@@ -5,7 +5,7 @@ include mixin/postViewer.pug
 block content
   .container
     .col-sm-2.col-xs-0
-    .user-cover.col-xs-12.col-sm-8
+    .user-cover.col-xs-12.col-md-8
       .user-main-info.clearfix
         .pull-left
           img.img-responsive.img-circle(src=`${user.avatar}`)
@@ -20,9 +20,15 @@ block content
           - const followings = user.following.length
           p #{followings} Followings
       .user-actions.clearfix
-        .col-sm-5.col-xs-0
-        .btn.btn-primary Follow 
-    +postViewer
+        - const Followbtn = loginedUser ? !user.followers.includes(loginedUser._id)  : true
+        - const showFollowBtn = followbtn || loginedUser ? user._id === loginedUser._id : true
+        if showFollowBtn
+          .col-sm-5.col-xs-0
+          a.btn.btn-primary(href=`/follow/${user.username}`) Follow 
+
+    .row 
+      .col-md-8
+        +postViewer(posts)
     
 
 
