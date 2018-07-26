@@ -2,8 +2,26 @@ const Post = require('../models/postSchema');
 const { findCommentsByPost } = require('./commentController');
 
 exports.feed = async (req, res) => {
-  const posts = await Post.find();
-  res.render('index', { title: 'Medium Clone', posts });
+  const page = req.params.page || 1;
+  const limit = 7;
+  const skip = page * limit - limit;
+
+  // 1. Query the database for a list of all post
+  const postPromise = Post.find()
+    .skip(skip)
+    .limit(limit)
+    .sort({ created: 'desc' });
+
+  const countPromise = Post.count();
+
+  const [posts, count] = await Promise.all([postPromise, countPromise]);
+  const pages = Math.ceil(count / limit);
+  if (!posts.length && skip) {
+    res.redirect(`/post/page/${pages}`);
+    return;
+  }
+
+  res.render('index', { title: 'Medium clone', posts, page, pages });
 };
 
 exports.findPostByURL = async (req, res) => {

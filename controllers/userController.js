@@ -52,8 +52,9 @@ exports.followUser = async (req, res) => {
 };
 
 exports.unfollowUser = async (req, res) => {
-  // me and tofollow refer to usernames which would be unique
-  const [me, tounfollow] = [req.user.username, req.params.username];
+  // * me and tofollow refer to usernames which would be unique
+  const me = req.user.username;
+  const tounfollow = req.params.username;
   console.log(me, tounfollow);
   const follower = await User.findOne({ username: tounfollow });
   await User.findOneAndUpdate(

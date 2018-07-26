@@ -6,6 +6,7 @@ const pc = require('../controllers/postController');
 const uc = require('../controllers/userController');
 
 router.get('/', catchErrors(pc.feed));
+router.get('/page/:page', catchErrors(pc.feed));
 router.get('/login', uc.login);
 router.get('/p/:url', catchErrors(pc.findPostByURL));
 router.get('/editor', uc.isLoggedIn, pc.writePost);

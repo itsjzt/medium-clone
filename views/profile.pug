@@ -18,11 +18,11 @@ block content
           p #{followers} Followers
       .user-actions.clearfix
         .col-sm-5.col-xs-0
-        //- - const isFollower = loginedUser && loginedUser.followers.includes(user._id)
-        //- if isFollower
-        a.btn.btn-default(href=`/unfollow/${user.username}`) Unfollow 
-        //- else 
-        a.btn.btn-default(href=`/follow/${user.username}`) Follow 
+        - const isFollower = loginedUser && Array(loginedUser.followers).includes(user._id)
+        if isFollower
+          a.btn.btn-default(href=`/unfollow/${user.username}`) Unfollow 
+        else 
+          a.btn.btn-default(href=`/follow/${user.username}`) Follow 
 
     .row 
       .col-md-8
