@@ -7,7 +7,7 @@ block content
     +postViewer(posts)
   .pagination-center
     ul.pager
-      li(class=`previous ${page <= 1 ? '' : 'disable' }`)
-        a(href="#") Previous
-      li(class=`next ${page >= pages ? '' : 'disable' }`)
-        a(href="#") Next 
+      li(class=`previous ${page <= 1 ? 'disabled' : '' }`)
+        a(href=`/page/${Number(page)-1}`) Previous
+      li(class=`next ${page >= pages ? 'disabled' : '' }`)
+        a(href=`/page/${Number(page)+1}`) Next 
