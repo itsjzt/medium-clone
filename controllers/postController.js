@@ -12,7 +12,7 @@ exports.feed = async (req, res) => {
     .limit(limit)
     .sort({ created: 'desc' });
 
-  const countPromise = Post.count();
+  const countPromise = Post.countDocuments();
 
   const [posts, count] = await Promise.all([postPromise, countPromise]);
   const pages = Math.ceil(count / limit);
@@ -46,7 +46,7 @@ exports.submitPost = async (req, res) => {
 };
 
 exports.writePost = (req, res) => {
-  res.render('write.pug');
+  res.render('write.pug', { title: 'Write Post' });
 };
 
 exports.likePost = async (req, res) => {
@@ -55,4 +55,28 @@ exports.likePost = async (req, res) => {
     { $inc: { claps: 1 } }
   );
   res.redirect('back');
+};
+
+// todo: add user checks
+exports.updatePostForm = async (req, res) => {
+  const posturl = req.params.posturl;
+  const post = await Post.findOne({ url: posturl });
+  res.render('write', { title: post.title, post });
+};
+
+exports.updatePost = async (req, res) => {
+  const { title, article } = req.body;
+  const author = req.user._id;
+  const post = await Post.findOneAndUpdate({
+    title,
+    author,
+    article,
+  });
+};
+
+// todo: add user checks
+exports.deletePost = async (req, res) => {
+  const posturl = req.params.posturl;
+  await Post.findOneAndRemove({ url: posturl });
+  res.redirect('/');
 };
