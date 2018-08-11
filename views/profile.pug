@@ -1,0 +1,36 @@
+extends layout
+
+include mixin/postViewer.pug
+
+block content
+  .container
+    .col-sm-2.col-xs-0
+    .user-cover.col-xs-12.col-md-8
+      .user-main-info.clearfix
+        .pull-left
+          img.img-responsive.img-circle(src=`${user.avatar}`)
+        .pull-right
+          h1= user.name
+          h4= user.description
+      .user-secondary-info.clearfix 
+        .pull-left
+          - const followers = user.followers.length
+          p #{followers} Followers
+      .user-actions.clearfix
+        .col-sm-5.col-xs-0
+        - const isFollower = loginedUser && Array(loginedUser.followers).includes(user._id)
+        if isFollower
+          a.btn.btn-default(href=`/unfollow/${user.username}`) Unfollow 
+        else 
+          a.btn.btn-default(href=`/follow/${user.username}`) Follow 
+
+    .row 
+      .col-md-8
+        +postViewer(posts)
+    
+
+
+
+        
+
+      

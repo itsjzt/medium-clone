@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= title
+    
+    meta(name="viewport" content="width=device-width, initial-scale=1") 
+    meta(charset="utf-8")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    block HTMLhead
+
+
+  body
+    nav.navbar
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='/') Medium Clone
+        ul.nav.navbar-nav.navbar-right
+          li
+            if loginedUser
+              .dropdown
+                img.img-responsive.img-circle.dropdown-toggle.margin-right-sm(src=`${loginedUser.avatar}` data-toggle="dropdown")
+                ul.dropdown-menu
+                  li
+                    a(href="/logout") Logout
+                  li
+                    a(href="/editor") Write Post
+                  li 
+                    a(href="/settings") Settings
+            else
+              a(href='/auth/google')
+                span.glyphicon.glyphicon-user
+                |  SignUp / Login
+
+
+    block content
+      
+    //- script(src="https://rawgit.com/turbolinks/turbolinks/master/dist/turbolinks.js")

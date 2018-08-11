@@ -1,0 +1,147 @@
+html {
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* debug mode */
+
+/* * {
+  outline: solid 1px red;
+} */
+
+.posts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.popular-tags {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 20px;
+  color: #454545;
+  font-variant-caps: petite-caps;
+}
+
+.link[href] {
+  color: inherit;
+}
+
+.reset-list-type {
+  list-style-type: none;
+}
+
+.post-body {
+  padding-left: 12px;
+  padding-right: 12px;
+  font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua',
+    Georgia, serif;
+  font-size: 21px;
+  line-height: 32px;
+}
+
+.margin-top-sm {
+  margin-top: 16px;
+}
+
+.margin-left-sm {
+  margin-left: 16px;
+}
+
+.margin-right-sm {
+  margin-right: 16px;
+}
+
+.margin-sm {
+  margin: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  .margin-top-sm {
+    margin-top: 32px;
+  }
+
+  .margin-left-sm {
+    margin-left: 32px;
+  }
+
+  .margin-right-sm {
+    margin-right: 32px;
+  }
+
+  .margin-sm {
+    margin: 32px;
+  }
+
+  .posts {
+    justify-content: center;
+  }
+}
+
+.post-article,
+.post-textarea {
+  font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua',
+    Georgia, serif;
+  font-size: 21px;
+  line-height: 32px;
+}
+
+.post-textarea:hover,
+.post-textarea:focus {
+  outline: none;
+}
+
+#editor__heading {
+  font-size: 17px;
+  font-weight: 300;
+  font-family: inherit;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+
+.post-action {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.login {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

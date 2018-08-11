@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .container
+    if user
+      .col-sm-3.col-xs-0
+      .col-sm-6.col-xs-12
+        .post-author
+          .user-main-info.clearfix
+          .pull-left
+            a(href=`/i/${user.username}`) By #{user.name}
+          .pull-right
+            p= user.description
+
+  .container
+    .col-sm-2.col-xs-0
+    .col-sm-8.col-xs-12
+      h1= post.title
+      .post-article !{post.article}
+      .post-action
+        a.btn.btn-lg.btn-default(href=`/like/${post._id}`) ❤️ Like (#{post.claps})
+            
+  .container
+    .col-sm-2.col-xs-0
+    .col-sm-8.col-xs-12
+      form(action=`/comment/${post._id}` method="POST")
+        .form-group
+          label.sr-only(for="cmnt_txt") Comment
+          input#cmnt_txt.form-control(name="text" required="true" placeholder="write your views on this post ...")
+        input.btn.btn-default(type="submit" value="Submit")
+
+  if post.comments 
+    .container 
+      .col-sm-3.col-xs-0
+      .col-sm-6.col-xs-12
+        each comment in post.comments
+          .comment.clearfix
+            .panel.panel-default
+              .panel-heading
+                a(href=`/i/${comment.author.username}`)
+                  h4= comment.author.name
+              .panel-body
+                h5= comment.text

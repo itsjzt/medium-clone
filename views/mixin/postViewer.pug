@@ -1,0 +1,13 @@
+mixin postViewer(posts)
+  if posts
+    .col-xs-12.col-sm-12.margin-top-sm
+      h2 Posts
+      ul.posts
+        each post in posts
+          li.card.border.post.reset-list-type
+            a(href=`/p/${post.url}`)
+              .post-body 
+                h3.post-title #{post.title}
+                - var postText = String(post.article).split('').slice(0,30).join('')
+                p.post-text postText
+            
