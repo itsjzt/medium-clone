@@ -18,7 +18,10 @@ block content
       h1= post.title
       .post-article !{post.article}
       .post-action
-        a.btn.btn-lg.btn-default(href=`/like/${post._id}`) ❤️ Like (#{post.claps})
+        a.btn.btn-default(href=`/like/${post.url}`) ❤️ Like (#{post.claps})
+        a.btn.btn-danger(href=`/delete/${post.url}`) Delete Post
+        a.btn.btn-warning(href=`/editor/${post.url}`) Update Post
+
             
   .container
     .col-sm-2.col-xs-0

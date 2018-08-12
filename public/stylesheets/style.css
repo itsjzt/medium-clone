@@ -128,7 +128,7 @@ html {
 
 .post-action {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin: 32px 0;
 }
 
